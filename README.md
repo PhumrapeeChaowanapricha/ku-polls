@@ -10,4 +10,6 @@ Google Forms is clumsy and often does not allow a visitor to view and edit a pre
 SurveyMonkey has limits on free forms, including the number of survey items and number of responses.
 
 
-[Home](../../wiki/Home)
+[Go to Home](../../wiki/Home)
+
+[Vision statement](../../wiki/Home)
