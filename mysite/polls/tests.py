@@ -6,7 +6,6 @@ from .models import Question
 
 
 def create_question(question_text, days):
-
     time = timezone.now() + datetime.timedelta(days=days)
     return Question.objects.create(question_text=question_text, pub_date=time)
 
@@ -82,3 +81,26 @@ class QuestionDetailViewTests(TestCase):
         url = reverse('polls:detail', args=(past_question.id,))
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
+
+
+class TestPublish(TestCase):
+    def test_is_published(self):
+        time = timezone.now() - datetime.timedelta(days=1)
+        question = Question(pub_date=time)
+        self.assertTrue(question.is_published())
+        
+
+    def test_can_vote(self):
+        time = timezone.now() - datetime.timedelta(days=1)
+        question = Question(pub_date=time)
+        self.assertTrue(question.can_vote)
+    
+    
+
+
+
+
+
+
+
+

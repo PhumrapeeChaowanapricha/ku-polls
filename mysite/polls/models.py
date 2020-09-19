@@ -5,6 +5,16 @@ from django.utils import timezone
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date pubished')
+    end_date = models.DateTimeField('date end', default=timezone.now() + datetime.timedelta(days=1))
+
+    def is_published(self):
+        now = timezone.now()
+        return now >= self.pub_date
+
+    def can_vote(self):
+        now = timezone.now()
+        return self.pub_date <= now <= self.end_date
+
     def __str__(self):
         return self.question_text
     
@@ -21,4 +31,5 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
     def __str__(self):
         return self.choice_text
+
 
