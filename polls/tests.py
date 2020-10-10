@@ -95,30 +95,6 @@ class TestPublish(TestCase):
         question = Question(pub_date=time)
         self.assertTrue(question.can_vote)
 
-class VoteTest(TestCase):
-    def setUp(self):
-        self.client = Client()
-
-    def test_poll_index(self):
-        pub_time = timezone.now() - datetime.timedelta(days=2)
-        end_time = timezone.now() - datetime.timedelta(days=1)
-        question = Question(question_text="This is sample ",pub_date=pub_time,end_date=end_time)
-        question.save()
-        respone = self.client.get(reverse('polls:index'))
-        self.assertEqual(respone.status_code,200)
-        self.assertContains(respone,"This is sample ")
-
-    def test_polls_index(self):
-        pub_time = timezone.now() - datetime.timedelta(days=1)
-        question = Question(question_text="ABCDEFGHIJ",pub_date=pub_time)
-        question.save()
-        response = self.client.get('/polls/')
-        self.assertTemplateUsed(response,template_name='polls/index.html')
-        # Is test poll included in the page?
-        self.assertContains(response,"ABCDEFGHIJ")
-
-    def get_vote(self):
-        response =self.client.post('/polls/1/', {'choice': '2'})
 
     
     
