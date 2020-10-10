@@ -9,7 +9,6 @@ from django.core.exceptions import ObjectDoesNotExist
 
 
 class IndexView(generic.ListView):
-    model = Question
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
@@ -30,6 +29,17 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
+
+    def get(self, request, **kwargs):
+        try:
+            question = Question.objects.get(pk=kwargs['pk'])
+            if not question.can_vote():
+                return HttpResponseRedirect(reverse('polls:index'), messages.error(request, "Already closed. Can't vote!"))
+        except ObjectDoesNotExist:
+            return HttpResponseRedirect(reverse('polls:index'), messages.error(request, "This poll does not exist."))
+        self.object = self.get_object()
+        return self.render_to_response(self.get_context_data(object=self.get_object()))
+
     def get_queryset(self):
         return Question.objects.filter(pub_date__lte=timezone.now())
 
