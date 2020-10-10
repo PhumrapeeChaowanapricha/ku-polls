@@ -12,18 +12,18 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os 
-from decouple import config
+# from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('wi$6ij1w%(l*l$h6p!(4a1jv1cfb6qn^00kmhmf#v6m$)5!yrt')
+SECRET_KEY = 'wi$6ij1w%(l*l$h6p!(4a1jv1cfb6qn^00kmhmf#v6m$)5!yrt'
 DEBUG = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default= False, cast=bool)
+# DEBUG = config('DEBUG', default= False, cast=bool)
 
 ALLOWED_HOSTS = []
 
