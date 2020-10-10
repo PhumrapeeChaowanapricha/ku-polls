@@ -88,21 +88,9 @@ class TestPublish(TestCase):
         time = timezone.now() - datetime.timedelta(days=1)
         question = Question(pub_date=time)
         self.assertTrue(question.is_published())
-        
 
     def test_can_vote(self):
         time = timezone.now() - datetime.timedelta(days=1)
         question = Question(pub_date=time)
         self.assertTrue(question.can_vote)
-
-
-    
-    
-
-
-
-
-
-
-
 
