@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='question',
             name='end_date',
-            field=models.DateTimeField(default=datetime.datetime(2020, 9, 20, 14, 5, 48, 283280, tzinfo=utc), verbose_name='date end'),
+            field=models.DateTimeField(default=datetime.datetime(2020, 9, 19, 9, 29, 33, 592223, tzinfo=utc), verbose_name='date end'),
         ),
     ]
