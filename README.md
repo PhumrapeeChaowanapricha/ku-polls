@@ -1,4 +1,5 @@
 # ku-polls
+[![Build Status](https://travis-ci.com/PhumrapeeChaowanapricha/ku-polls.svg?branch=master)](https://travis-ci.com/PhumrapeeChaowanapricha/ku-polls)
 ## Background
 KU staff and students often want to conduct polls or surveys within KU, or within a unit or organization at KU. The polls or surveys provide input for making decisions, planning events, and learning others’ preferences and ideas, but they aren’t critical (like voting for a representative).
 
